@@ -16,7 +16,7 @@ const Menu: React.FC<MenuProps> = ({ title, items }) => {
 
   // Function to increase the number of visible items by 6, up to the total number of items
   const showMoreItems = () => {
-    setVisibleItems((prev) => Math.min(prev + 6, items.length)); // Updates visibleItems to the minimum of previous + 6 or total items
+    setVisibleItems((prev) => Math.min(prev + 90, items.length)); // Updates visibleItems to the minimum of previous + 6 or total items
   };
 
   // Function to reset the number of visible items to 1

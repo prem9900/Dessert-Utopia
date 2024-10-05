@@ -6,42 +6,80 @@ export const NAV_LINKS = [
     { to: "/contact", label: "Contact Us" },
 ];
 export const WAFFLES_ITEMS = [
+   
     {
         src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
-        name: "Coffee kick",
+        name: "Choco Rush",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
     },
     {
-        src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
-        name: "Honey",
-        price: 5.99,
-        addItem: () => console.log("Classic Waffle added"),
-    },
-    {
-        src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
+        src: "https://t3.ftcdn.net/jpg/09/73/26/74/240_F_973267472_CROQ7qRYiKFphZeqU4Ob6lGMNu5I4zNM.jpg",
         name: "Oreo",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
     },
     {
-        src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
+        src: "https://tiffinandteaofficial.com/wp-content/uploads/2023/06/IMG_8935-1-595x824.jpg",
         name: "Nutella",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
     },
     {
-        src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
-        name: "kitat",
+        src: "https://i.pinimg.com/736x/c7/d2/4b/c7d24ba1ed9c311cc576f57375b09512.jpg",
+        name: "Ferrero",
+        price: 5.99,
+        addItem: () => console.log("Classic Waffle added"),
+      },
+      {
+        src: "https://b.zmtcdn.com/data/pictures/chains/0/18621510/561b747d49821269819a3eaf8f118861.jpg?fit=around|960:500&crop=960:500;*,*",
+        name: "Belgium",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
     },
     {
-        src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
+        src: "https://t3.ftcdn.net/jpg/05/92/46/68/240_F_592466813_zcyb6zWc5ol2kuYHbEvxYa9IL5jgvt3K.jpg",
+        name: "Honey",
+        price: 5.99,
+        addItem: () => console.log("Classic Waffle added"),
+    },
+    {
+        src: "https://t3.ftcdn.net/jpg/06/15/21/20/240_F_615212039_uo7wRjevYgAulRaRnaZm3CfW540y8CYI.jpg",
+        name: "Caramel",
+        price: 5.99,
+        addItem: () => console.log("Classic Waffle added"),
+    },
+    {
+        src: "https://choosingchia.com/jessh-jessh/uploads/2021/05/Banana-snickers-stuffed-waffle-9-680x1020.jpg",
         name: "Snickers",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
     },
+    {
+        src: "https://globchem.in/cdn/shop/products/8_1_1000x1000.png?v=1672911201",
+        name: "Nuts Overload",
+        price: 5.99,
+        addItem: () => console.log("Classic Waffle added"),
+      },
+    {
+        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA4DSKcdxP4hE0pltHW_HylQlRTrVnn0jO2Q&s",
+        name: "Red Velvet",
+        price: 5.99,
+        addItem: () => console.log("Classic Waffle added"),
+    },
+    
+    
+    {
+        src: "https://admin.boxfood.co.in/storage/8963/5OXnU-1693845953.jpg",
+        name: "kitat",
+        price: 5.99,
+        addItem: () => console.log("Classic Waffle added"),
+    },
+   
+   
+    
+   
+     
     // Add more waffle items here
 ];
 export const PANCAKES_ITEMS = [
@@ -65,7 +103,7 @@ export const PANCAKES_ITEMS = [
     },
     {
         src: "https://t4.ftcdn.net/jpg/05/68/73/31/240_F_568733129_MvvjVm6srammSXEuzW03IOOoQndyY7EK.jpg",
-        name: "Fluffy Pancakes",
+        name: " Pancakes",
         price: 6.99,
         addItem: () => console.log("Fluffy Pancakes added"),
     },
