@@ -164,3 +164,15 @@ const Footer: React.FC = () => {
 
 // Exporting the Footer component for use in other parts of the application
 export default Footer;
+
+
+
+
+
+
+
+
+
+
+
+
