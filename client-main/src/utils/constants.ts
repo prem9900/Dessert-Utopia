@@ -25,7 +25,7 @@ export const WAFFLES_ITEMS: MenuItemProps[] = [
     addItem: () => console.log("Classic Waffle added"),
   },
   {
-    src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
+    src: "https://t3.ftcdn.net/jpg/09/73/26/74/240_F_973267472_CROQ7qRYiKFphZeqU4Ob6lGMNu5I4zNM.jpg",
     name: "Oreo",
     price: 5.99,
     addItem: () => console.log("Classic Waffle added"),
@@ -38,7 +38,7 @@ export const WAFFLES_ITEMS: MenuItemProps[] = [
   },
   {
     src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
-    name: "kitat",
+    name: "kitKat",
     price: 5.99,
     addItem: () => console.log("Classic Waffle added"),
   },
@@ -391,37 +391,45 @@ export const SOFT_DRINKS_ITEMS: MenuItemProps[] = [
 
 
 
-// utils/constants.ts
-import { AboutUsSection } from './types';
 
+
+// utils/constants.ts
+import { AboutUsSection } from './types'; // Importing the type definition for AboutUsSection
+
+// Importing video assets
+import welcomeVideo from '../assets/Videos/welcome-video.mp4';
+import weAreOpenVideo from '../assets/Videos/we-are-open.mp4';
+import grandOpeningVideo from '../assets/Videos/cafe-opening.mp4';
+import customersDelightVideo from '../assets/Videos/customer-ordering.mp4';
+
+// Exporting an array of About Us content sections
 export const ABOUT_US_CONTENT: AboutUsSection[] = [
   {
     title: "Welcome to Dessert Utopia",
     content: "Welcome to Dessert Utopia, where every bite is a journey into sweetness. Our café is not just a place to eat, it's a place to connect, to savor, and to create memories. Step inside and let the magic of desserts take you away.",
-    mediaType: 'video',
-    mediaSrc: '/src/assets/Videos/welcome-video.mp4',
+    mediaType: 'video', // Indicating that this is a video type
+    mediaSrc: welcomeVideo, // Using the imported video file
   },
-  
   {
     title: "We Are Open!",
     content: "We are excited to welcome you! Watch this short clip from our grand opening day, where our doors first opened to dessert lovers everywhere.",
     mediaType: 'video',
-    mediaSrc: '/src/assets/Videos/we-are-open.mp4',
+    mediaSrc: weAreOpenVideo,
   },
-
   {
     title: "Our Grand Opening",
     content: "Take a look at the special day we opened our doors to the world. It was a celebration of creativity, passion, and desserts, and we were thrilled to welcome our first guests. Join us as we take a trip down memory lane to the very beginning of Dessert Utopia.",
     mediaType: 'video',
-    mediaSrc: '/src/assets/Videos/cafe-opening.mp4',
+    mediaSrc: grandOpeningVideo,
   },
   {
     title: "A Customer's Delight",
     content: "At Dessert Utopia, every customer is part of the experience. Watch as a delighted customer places their order and enjoys our handcrafted desserts, savoring every moment of indulgence. It's not just a dessert; it's an experience you'll want to come back for.",
     mediaType: 'video',
-    mediaSrc: '/src/assets/Videos/customer-ordering.mp4',
+    mediaSrc: customersDelightVideo,
   },
 ];
+
 
 
 
