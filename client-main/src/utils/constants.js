@@ -6,7 +6,6 @@ export const NAV_LINKS = [
     { to: "/contact", label: "Contact Us" },
 ];
 export const WAFFLES_ITEMS = [
-   
     {
         src: "https://t3.ftcdn.net/jpg/06/01/73/24/240_F_601732445_TLqdpRadyN7yuMAccfkuxiEGCS1lEkr1.jpg",
         name: "Choco Rush",
@@ -30,8 +29,8 @@ export const WAFFLES_ITEMS = [
         name: "Ferrero",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
-      },
-      {
+    },
+    {
         src: "https://b.zmtcdn.com/data/pictures/chains/0/18621510/561b747d49821269819a3eaf8f118861.jpg?fit=around|960:500&crop=960:500;*,*",
         name: "Belgium",
         price: 5.99,
@@ -60,26 +59,19 @@ export const WAFFLES_ITEMS = [
         name: "Nuts Overload",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
-      },
+    },
     {
         src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA4DSKcdxP4hE0pltHW_HylQlRTrVnn0jO2Q&s",
         name: "Red Velvet",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
     },
-    
-    
     {
         src: "https://admin.boxfood.co.in/storage/8963/5OXnU-1693845953.jpg",
         name: "kitat",
         price: 5.99,
         addItem: () => console.log("Classic Waffle added"),
     },
-   
-   
-    
-   
-     
     // Add more waffle items here
 ];
 export const PANCAKES_ITEMS = [
