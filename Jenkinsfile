@@ -1,58 +1,44 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      parallel {
-        stage('Build') {
-          steps {
-            sh '  stage(\'Build\')'
-          }
-        }
+    agent any
 
-        stage('') {
-          steps {
-            sh ''' echo \'Building...
-'''
-          }
-        }
-
-      }
+    environment {
+        IMAGE_NAME = 'prem094/dessert-utopia-image1'
+        IMAGE_TAG = "${BUILD_NUMBER}"
     }
 
-    stage('Test') {
-      parallel {
-        stage('Test') {
-          steps {
-            sh ' stage(\'Test\')'
-          }
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'dessert_utopia', url: 'https://github.com/prem9900/Dessert-Utopia'
+            }
         }
 
-        stage('') {
-          steps {
-            sh 'echo \'Running tests...'
-          }
+        stage('Install Dependencies and Build') {
+            steps {
+                script {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
         }
 
-      }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-cred') {
+                        sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                    }
+                }
+            }
+        }
     }
-
-    stage('Deploy') {
-      parallel {
-        stage('Deploy') {
-          steps {
-            sh ''' stage(\'Deploy\')
-'''
-          }
-        }
-
-        stage('') {
-          steps {
-            sh 'echo \'Deploying to server...'
-          }
-        }
-
-      }
-    }
-
-  }
-}
+} 
