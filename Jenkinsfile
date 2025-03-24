@@ -10,7 +10,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'dessert_utopia', url: 'https://github.com/prem9900/dessert_utopia'
+                git branch: 'dessert_utopia', url: 'https://github.com/prem9900/Dessert-Utopia.git'
             }
         }
 
