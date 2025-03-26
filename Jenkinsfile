@@ -1,44 +1,44 @@
 pipeline {
-    agent any
-
-    environment {
-        IMAGE_NAME = 'prem094/dessert-utopia-image1'
-        IMAGE_TAG = "${BUILD_NUMBER}"
+    agent {
+        docker {
+            image 'docker:latest' // Use a Docker image with Docker installed
+            args '--privileged' // Optional: Allow Docker inside Docker if needed
+        }
     }
-
+    environment {
+        DOCKER_IMAGE = 'prem094/my-project:latest'
+    }
     stages {
-
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                git branch: 'dessert_utopia', url: 'https://github.com/prem9900/Dessert-Utopia.git'
+                checkout scm
             }
         }
-
-        stage('Install Dependencies and Build') {
-            steps {
-                script {
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                    echo "Building Docker Image..."
+                    sh 'docker build -t $DOCKER_IMAGE .'
                 }
             }
         }
-
-        stage('Push Docker Image') {
+        stage('Login to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-cred') {
-                        sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                    echo "Logging into Docker Hub..."
+                    withDockerRegistry([credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v1/']) {
+                        echo "Successfully logged in to Docker Hub"
                     }
                 }
             }
         }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    echo "Pushing Docker Image to Docker Hub..."
+                    sh 'docker push $DOCKER_IMAGE'
+                }
+            }
+        }
     }
-} 
+}
