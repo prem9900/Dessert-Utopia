@@ -1,8 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'docker:latest' // Use a Docker image with Docker installed
-            args '--privileged' // Optional: Allow Docker inside Docker if needed
+            image 'node:20' // Using Node.js with Docker installed
         }
     }
     environment {
@@ -18,7 +17,7 @@ pipeline {
             steps {
                 script {
                     echo "Building Docker Image..."
-                    sh 'docker build -t $DOCKER_IMAGE .'
+                    sh "docker build -t ${env.DOCKER_IMAGE} ."
                 }
             }
         }
@@ -36,7 +35,7 @@ pipeline {
             steps {
                 script {
                     echo "Pushing Docker Image to Docker Hub..."
-                    sh 'docker push $DOCKER_IMAGE'
+                    sh "docker push ${env.DOCKER_IMAGE}"
                 }
             }
         }
