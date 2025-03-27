@@ -1,43 +1,59 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:20' // Using Node.js with Docker installed
-        }
-    }
+    agent any
+
     environment {
         DOCKER_IMAGE = 'prem094/my-project:latest'
     }
+
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
                 checkout scm
             }
         }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'npm test'
+            }
+        }
+
+        stage('Build Project') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
-                script {
-                    echo "Building Docker Image..."
-                    sh "docker build -t ${env.DOCKER_IMAGE} ."
+                sh 'docker build -t $DOCKER_IMAGE .'
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            environment {
+                DOCKER_CLI_AUTH = 'yes'
+            }
+            steps {
+                withDockerRegistry([ credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v1/' ]) {
+                    sh 'docker push $DOCKER_IMAGE'
                 }
             }
         }
-        stage('Login to Docker Hub') {
-            steps {
-                script {
-                    echo "Logging into Docker Hub..."
-                    withDockerRegistry([credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v1/']) {
-                        echo "Successfully logged in to Docker Hub"
-                    }
-                }
-            }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
         }
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    echo "Pushing Docker Image to Docker Hub..."
-                    sh "docker push ${env.DOCKER_IMAGE}"
-                }
-            }
+        failure {
+            echo 'Pipeline failed! Check the logs for details.'
         }
     }
 }
