@@ -14,25 +14,36 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                sh '''
+                    cd client-main
+                    npm install
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'npm test'
+                sh '''
+                    cd client-main
+                    npm test
+                '''
             }
         }
 
         stage('Build Project') {
             steps {
-                sh 'npm run build'
+                sh '''
+                    cd client-main
+                    npm run build
+                '''
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                sh '''
+                    docker build -t $DOCKER_IMAGE ./client-main
+                '''
             }
         }
 
@@ -42,7 +53,9 @@ pipeline {
             }
             steps {
                 withDockerRegistry([ credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v1/' ]) {
-                    sh 'docker push $DOCKER_IMAGE'
+                    sh '''
+                        docker push $DOCKER_IMAGE
+                    '''
                 }
             }
         }
