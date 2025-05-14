@@ -1,45 +1,49 @@
- 🍰 Dessert Utopia | React + TypeScript Static Website with Docker, AWS, and Custom Domain
+🍰 Dessert Utopia | React + TypeScript Static Website with Docker, AWS, and Custom Domain
 
 Welcome to **Dessert Utopia**, a modern static website built using **React** and **TypeScript**, containerized with **Docker**, deployed on **AWS EC2**, and accessible via a custom domain using **Route 53** with **NGINX** as a reverse proxy.
 
 
 
  🔧 Tech Stack
-- ⚛️ React + TypeScript (Frontend)
-- 🐳 Docker (Containerization)
-- 🖥️ AWS EC2 (Ubuntu Linux Instance)
-- 🌐 AWS Route 53 (DNS & Domain)
-- 🚦 NGINX (Reverse Proxy & Web Server)
-- 💻 GitHub (Code Hosting & Version Control)
+
+* ⚛️ React + TypeScript (Frontend)
+* 🐳 Docker (Containerization)
+* 🖥️ AWS EC2 (Ubuntu Linux Instance)
+* 🌐 AWS Route 53 (DNS & Domain)
+* 🚦 NGINX (Reverse Proxy & Web Server)
+* 💻 GitHub (Code Hosting & Version Control)
 
 
 
- 🌐 Live Project
+🌐 Live Project
+
 🔗 Visit the site: [https://premify.sbs](https://premify.sbs)
 
 
 
  🚀 Features
-- ⚡ Fast, static and responsive UI
-- 📦 Dockerized frontend app for consistency across environments
-- ☁️ Hosted on AWS EC2 for scalable deployment
-- 🌍 Domain configured via Route 53
-- 🔁 NGINX reverse proxy with Docker for production-grade routing
-- 🔒 HTTPS SSL ready (via Certbot - Let's Encrypt)
+
+  ⚡ Fast, static and responsive UI
+  📦 Dockerized frontend app for consistency across environments
+  ☁️ Hosted on AWS EC2 for scalable deployment
+  🌍 Domain configured via Route 53
+  🔁 NGINX reverse proxy with Docker for production-grade routing
+  🔒 HTTPS SSL ready (via Certbot - Let's Encrypt)
 
 
 
- 🐳 Docker Setup
+   🐳 Docker Setup
 
 ```bash
-# Step 1: Build the Docker image
 docker build -t dessert-utopia .
+docker run -d -p 3000:3000 --name dessert-utopia-container dessert-utopia
+```
 
-# Step 2: Run the Docker container
-docker run -d -p 3000:3000 --name dessert-utopia-container dessert-utopia ```
 
-🔀 NGINX Configuration (Reverse Proxy)
 
+   🔀 NGINX Configuration (Reverse Proxy)
+
+```bash
 server {
     listen 80;
     server_name premify.sbs;
@@ -53,23 +57,11 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 }
+```
 
-💡 Author
+
+ 💡 Author 
+
 Prem
-🔗 LinkedIn
-🐙 GitHub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+🔗 [LinkedIn](https://www.linkedin.com/in/naga-prem-550b35283/)
+🐙 [GitHub](https://github.com/prem9900)
