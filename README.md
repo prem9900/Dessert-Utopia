@@ -36,4 +36,40 @@ Welcome to **Dessert Utopia**, a modern static website built using **React** and
 docker build -t dessert-utopia .
 
 # Step 2: Run the Docker container
-docker run -d -p 3000:3000 --name dessert-utopia-container dessert-utopia
+docker run -d -p 3000:3000 --name dessert-utopia-container dessert-utopia ```
+
+🔀 NGINX Configuration (Reverse Proxy)
+
+server {
+    listen 80;
+    server_name premify.sbs;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+💡 Author
+Prem
+🔗 LinkedIn
+🐙 GitHub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
